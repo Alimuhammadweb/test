@@ -1,0 +1,7 @@
+node_modules
+.next
+.env
+tsconfig.tsbuildinfo
+# legacy: old file-based uploads (images now live in PostgreSQL)
+public/uploads/*
+!public/uploads/.gitkeep

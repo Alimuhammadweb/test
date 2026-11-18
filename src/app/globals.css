@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper text-ink font-sans antialiased; }
+  h1, h2, h3 { text-wrap: balance; }
+  :focus-visible { outline: 2px solid theme("colors.acc"); outline-offset: 2px; }
+  ::selection { background: theme("colors.marker"); }
+}
+
+@layer components {
+  /* Headlines: heavy, tight sans. This is the one loud thing on the site. */
+  .headline { @apply font-display font-extrabold tracking-[-0.035em] leading-[1.02]; }
+  /* Category label: a highlighter stroke over the word, like a marked passage in a book. */
+  .label { @apply inline-block bg-marker text-ink text-[0.8125rem] font-semibold leading-none px-2 py-1 rounded-[2px] hover:bg-ink hover:text-paper transition-colors; }
+  .meta { @apply text-sm text-mute; }
+  .inp { @apply w-full border border-line bg-paper px-3 py-2 text-sm rounded-[3px] focus:border-acc; }
+  .btn { @apply inline-flex items-center justify-center bg-ink text-paper px-4 py-2 text-sm font-semibold rounded-[3px] hover:bg-acc transition-colors disabled:opacity-50 disabled:pointer-events-none; }
+  .btn2 { @apply inline-flex items-center justify-center border border-ink px-4 py-2 text-sm font-semibold rounded-[3px] hover:bg-mist transition-colors disabled:opacity-50 disabled:pointer-events-none; }
+  .skeleton { @apply bg-mist rounded-[2px] animate-pulse; }
+}
+
+/* Reading column: serif, generous leading, comfortable measure. */
+.prose-jm { font-family: var(--f-serif), Georgia, serif; font-size: 1.1875rem; line-height: 1.78; max-width: 40rem; overflow-wrap: anywhere; }
+.prose-jm > :first-child { margin-top: 0; }
+.prose-jm p, .prose-jm ul, .prose-jm ol, .prose-jm blockquote, .prose-jm pre { margin: 0 0 1.35em; }
+.prose-jm h2, .prose-jm h3, .prose-jm h4 { font-family: var(--f-display), system-ui, sans-serif; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin: 2em 0 .6em; }
+.prose-jm h2 { font-size: 1.75rem; } .prose-jm h3 { font-size: 1.4rem; } .prose-jm h4 { font-size: 1.15rem; }
+.prose-jm ul { list-style: disc; padding-left: 1.4em; } .prose-jm ol { list-style: decimal; padding-left: 1.4em; }
+.prose-jm li { margin-bottom: .35em; }
+.prose-jm blockquote { border-left: 4px solid theme("colors.marker"); padding-left: 1.1em; color: theme("colors.mute"); font-style: italic; }
+.prose-jm a { color: theme("colors.acc"); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.prose-jm a:hover { text-decoration-thickness: 2px; }
+.prose-jm strong { font-weight: 700; }
+.prose-jm img { max-width: 100%; height: auto; border-radius: 2px; margin: 1.5em 0; }
+.prose-jm code { font-size: .9em; background: theme("colors.mist"); padding: .1em .35em; border-radius: 2px; }
+.prose-jm pre { background: theme("colors.mist"); padding: 1em; overflow-x: auto; border-radius: 3px; }
+.prose-jm pre code { background: none; padding: 0; }
+.prose-jm hr { border: 0; border-top: 1px solid theme("colors.line"); margin: 2em 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse { animation: none; }
+  * { scroll-behavior: auto !important; transition: none !important; }
+}

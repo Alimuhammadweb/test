@@ -1,0 +1,40 @@
+{
+  "name": "just-mind",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "postinstall": "prisma generate",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "tsx scripts/unit-tests.ts",
+    "db:migrate": "prisma migrate deploy",
+    "db:baseline": "prisma migrate resolve --applied 0_init",
+    "db:push": "prisma db push",
+    "db:admin": "tsx --env-file=.env prisma/seed.ts",
+    "db:demo": "tsx --env-file=.env prisma/seed.ts --demo",
+    "db:legacy-images": "tsx --env-file=.env scripts/import-legacy-images.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "6.19.3",
+    "bcryptjs": "^2.4.3",
+    "marked": "^14.0.0",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sanitize-html": "^2.13.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/sanitize-html": "^2.13.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "prisma": "6.19.3",
+    "tailwindcss": "^3.4.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.6.0"
+  }
+}
